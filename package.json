@@ -1,0 +1,39 @@
+{
+  "name": "my-portfolio",
+  "version": "1.0.0",
+  "description": "Personal portfolio website using HTML, CSS, JS, and Sass",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "sass": "sass --watch scss:css",
+    "serve": "live-server",
+    "start": "concurrently \"npm run sass\" \"npm run serve\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bhak90-tesh/MY-Portfolio.git"
+  },
+  "keywords": [
+    "portfolio",
+    "frontend",
+    "sass",
+    "website"
+  ],
+  "author": "Otto",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/bhak90-tesh/MY-Portfolio/issues"
+  },
+  "homepage": "https://github.com/bhak90-tesh/MY-Portfolio#readme",
+  "dependencies": {
+    "sass": "^1.93.3"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "live-server": "^1.2.2"
+  }
+}
+

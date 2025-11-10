@@ -135,70 +135,173 @@
 	      </div>
 	    </div>
 	  </nav>
-	  <section id="home-section" class="hero">
-		  <div class="home-slider  owl-carousel">
-	       <div class="slider-item ">
-	      	<div class="overlay"></div>
-	         <div class="container">
-	          <div class="row d-md-flex no-gutters slider-text align-items-end justify-content-end" data-scrollax-parent="true">
-				<div class="one-third js-fullheight order-md-last img" style="background-image:url(images/ashutosh.png); width: 50%; height: 30%;">
-					<div class="overlay"></div>
-				  </div>				  
-		          <div class="one-forth d-flex  align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
-		          	<div class="text">
-		          		<span class="subheading">Hello!</span>
-			            <h1 class="mb-4 mt-3">I'm <span>Ashutosh Patil</span></h1>
+<section id="home-section" class="hero" style="height:100vh; position:relative; background:#0b0b0b; overflow:hidden;">
 
-						<!-- Element to contain animated typing -->
-						<span id="typing-animation"></span>
+	<style>
+		.hero {
+			background: linear-gradient(135deg, #121212, #1f1f1f);
+			overflow: hidden;
+		}
 
-						<script>
+		.hero .overlay {
+			background: rgba(0, 0, 0, 0.6);
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+		}
 
-						// Initialize the typing animation
-						const typingAnimationElement = document.getElementById('typing-animation');
+		.hero h1 {
+			font-size: 3rem;
+			font-weight: 700;
+			color: #fff;
+		}
 
-						// Create an array of typing text
-						const typingTexts = [
-						'Aspiring Software Engineer  ',
-						'Machine Learning Enthusiast ',
-						'Web Developer  ',
-						];
+		.hero h1 span {
+			color: #f9c74f;
+		}
 
-						// Create a function to display the typing animation for a given text
-						function playTypingAnimation(text) {
-						// Loop through each character and add it to the element
-						for (let i = 0; i < text.length; i++) {
-							setTimeout(() => {
-							typingAnimationElement.textContent += text[i];
-							}, i * 80); // Increase the delay to slow down the typing animation
-						}
+		.hero h2 {
+			color: #f9c74f;
+			font-size: 1.5rem;
+			font-weight: 500;
+			margin-top: 10px;
+			min-height: 40px;
+		}
 
-						// Once the animation is complete, reset the text and start over
-						setTimeout(() => {
-							typingAnimationElement.textContent = '';
-							playTypingAnimation(typingTexts[(typingTexts.indexOf(text) + 1) % typingTexts.length]);
-						}, text.length * 200);
-						}
+		.hero .subheading {
+			font-size: 1.3rem;
+			letter-spacing: 2px;
+			color: #f9c74f;
+			text-transform: uppercase;
+		}
 
-						// Start the typing animation loop
-						playTypingAnimation(typingTexts[0]);
+		.hero p {
+			max-width: 700px;
+			font-size: 1.1rem;
+			color: #ccc;
+		}
 
-						</script>
+		.hero .btn-primary {
+			background-color: #f9c74f;
+			border: none;
+			color: #000;
+			font-weight: 600;
+			transition: all 0.3s ease;
+		}
 
-						<br>
-						<br>
-			            <h2>A Enthusiastic IT student ready to contribute and grow in the tech industry!</h2>
-						<!-- <h2 class="d-flex" style="margin-bottom: 0">With over 5 years of experience</h2> -->
-						<!-- <br> -->
-			            <p><a href="https://www.linkedin.com/in/ashutoshpatil359/" class="btn btn-primary py-3 px-4">LinkedIn</a> 
-							<a href="https://github.com/bhak90-tesh" class="btn btn-white btn-outline-white py-3 px-4">My works</a></p>
-		            </div>
-		          </div>
-	        	</div>
-	        </div>
-	      </div>
+		.hero .btn-primary:hover {
+			background-color: #fff;
+			color: #000;
+		}
+
+		.hero .btn-outline-light {
+			border: 2px solid #f9c74f;
+			color: #f9c74f;
+			font-weight: 500;
+			transition: all 0.3s ease;
+		}
+
+		.hero .btn-outline-light:hover {
+			background-color: #f9c74f;
+			color: #000;
+		}
+
+		/* Typing animation styling */
+		#typing-animation {
+			color: #f9c74f;
+			font-size: 1.5rem;
+			font-weight: 500;
+			white-space: nowrap;
+			overflow: hidden;
+			border-right: 3px solid #f9c74f;
+			width: 25ch; /* width to fit longest phrase */
+			animation: blinkCursor 0.8s step-end infinite;
+			margin-bottom: 10px;
+		}
+
+		@keyframes blinkCursor {
+			from { border-color: #f9c74f; }
+			to { border-color: transparent; }
+		}
+
+		@media (max-width: 768px) {
+			.hero h1 {
+				font-size: 2.2rem;
+			}
+			.hero h2 {
+				font-size: 1.2rem;
+			}
+			.hero p {
+				font-size: 1rem;
+			}
+			#typing-animation {
+				font-size: 1.2rem;
+				width: 20ch;
+			}
+		}
+	</style>
+
+	<div class="overlay"></div>
+
+	<div class="container h-100 d-flex flex-column justify-content-center align-items-center text-center text-white ftco-animate" style="position:relative; z-index:2;">
+
+		<span class="subheading mb-3">Hello There 👋</span>
+
+		<h1 class="mb-4">I'm <span>Ashutosh Patil</span></h1>
+
+		<!-- Typing Animation -->
+		<h2 id="typing-animation"></h2>
+
+		<script>
+			const typingAnimationElement = document.getElementById('typing-animation');
+			const typingTexts = [
+				'Aspiring Software Engineer',
+				'Machine Learning Enthusiast',
+				'Frontend & WordPress Developer',
+				'Tech Explorer from Pune'
+			];
+
+			let textIndex = 0;
+			let charIndex = 0;
+			let isDeleting = false;
+
+			function typeEffect() {
+				const currentText = typingTexts[textIndex];
+				if (!isDeleting) {
+					typingAnimationElement.textContent = currentText.slice(0, charIndex++);
+					if (charIndex > currentText.length) {
+						isDeleting = true;
+						setTimeout(typeEffect, 1000); // pause before deleting
+						return;
+					}
+				} else {
+					typingAnimationElement.textContent = currentText.slice(0, charIndex--);
+					if (charIndex < 0) {
+						isDeleting = false;
+						textIndex = (textIndex + 1) % typingTexts.length;
+					}
+				}
+				setTimeout(typeEffect, isDeleting ? 60 : 100);
+			}
+
+			typeEffect();
+		</script>
+
+		<p class="mt-4 mb-5">
+			A passionate and creative <strong>IT Engineer</strong> who loves building interactive web experiences, exploring data-driven insights, and crafting innovative digital solutions. 
+			Always eager to learn, collaborate, and turn ideas into impact.
+		</p>
+
+		<div class="d-flex flex-wrap justify-content-center gap-3">
+			<a href="https://www.linkedin.com/in/ashutoshpatil359/" class="btn btn-primary py-3 px-4 m-2">LinkedIn</a>
+			<a href="https://github.com/bhak90-tesh" class="btn btn-outline-light py-3 px-4 m-2">My Projects</a>
+			<a href="#about-section" class="btn btn-light py-3 px-4 m-2">Know More ↓</a>
 		</div>
-    </section>
+	</div>
+</section>
+
 
 
 
@@ -220,7 +323,7 @@
 									<div class="col-sm-6 col-md-7">
 									  <div class="about-info">
 										<p><span class="title-s">Name: </span> <span>Ashutosh Patil</span></p>
-										<p><span class="title-s">Experience: </span> <span>Fresher (0-1 Year) </span></p>
+										<p><span class="title-s">Experience: </span> <span>Fresher (0-2 Year) </span></p>
 										<p><span class="title-s">Address: </span> <span>Pune</span></p>
 									  </div>
 									</div>
@@ -262,6 +365,16 @@
 										<div class="progress-bar" role="progressbar" style="width: 88%" aria-valuenow="80" aria-valuemin="0"
 											aria-valuemax="100"></div>
 									</div>
+									<span>Wordpress</span> <span class="pull-right">90%</span>
+									<div class="progress">
+										<div class="progress-bar" role="progressbar" style="width: 90%;" aria-valuenow="95" aria-valuemin="0"
+											aria-valuemax="50"></div>
+									</div>
+									<span>Drupal</span> <span class="pull-right">60%</span>
+									<div class="progress">
+										<div class="progress-bar" role="progressbar" style="width: 60%;" aria-valuenow="95" aria-valuemin="0"
+											aria-valuemax="50"></div>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -292,10 +405,10 @@
 						<div class="counter-wrap ftco-animate d-flex mt-md-3">
 							<div class="text">
 								<p class="mb-4">
-									<span class="number" data-number="5">0</span> <span>+</span>
-									<span>&nbsp; Projects completed</span>
+									<span class="number" data-number="10">10</span> <span>+</span>
+									<span>&nbsp; Industry Projects completed</span>
 									&nbsp;|&nbsp;
-									<span class="number" data-number="2">2</span> <span>Publications</span>
+									<span class="number" data-number="6">6</span> <span>Publications</span>
 								  </p>
 								  
 							</div>
@@ -325,24 +438,44 @@
 		<br>
 		
 		<div class="row">
-				<div class="col-md-6">
-					<div class="resume-wrap ftco-animate">
-						<span class="date">1 - 01 - 2024   to     15 - 04 - 2024</span>
-						<h2>Web Developer</h2>
-						<span class="position">PICT, Pune</span>
-						<p class="mt-4"> Analysed
-							data for 300+ students from the 2023-2024 Batch, identifying top performers of BE Batch 
-							<ul>
-								<li>Developed an interactive web application for managing real-time student data</li>
-								<li>Used Google Sheet API and Appscript for Calculation ang Scripting</li>
-								<li>Used Tableau to deliver live results and advanced data visualizations, enhancing academic performance tracking.</li>
-							</ul>
-						</p>
-					</div>
+	<!-- PICT, Pune Experience -->
+	<div class="col-md-6">
+		<div class="resume-wrap ftco-animate">
+			<span class="date">1 - 01 - 2024   to     15 - 04 - 2024</span>
+			<h2>Web Developer</h2>
+			<span class="position">PICT, Pune</span>
+			<p class="mt-4">
+				Analysed data for 300+ students from the 2023-2024 Batch, identifying top performers of the BE Batch.
+				<ul>
+					<li>Developed an interactive web application for managing real-time student data.</li>
+					<li>Used Google Sheet API and Appscript for calculation and scripting.</li>
+					<li>Used Tableau to deliver live results and advanced data visualizations, enhancing academic performance tracking.</li>
+					<li>Collaborated with faculty to automate evaluation processes and report generation.</li>
+					<li>Improved overall data accuracy by 40% through automation and efficient data handling techniques.</li>
+				</ul>
+			</p>
+		</div>
+	</div>
 
-				</div>
+	<!-- Task Infotech Experience -->
+	<div class="col-md-6">
+		<div class="resume-wrap ftco-animate">
+			<span class="date">June 2023 - June 2025</span>
+			<h2>Frontend & WordPress Developer</h2>
+			<span class="position">Task Infotech, Yevlewadi</span>
+			<p class="mt-4">
+				Worked as a Frontend and WordPress Developer, contributing to multiple client-based projects focused on responsive UI and CMS integration.
+				<ul>
+					<li>Designed and maintained responsive WordPress websites with a focus on usability and UI/UX design.</li>
+					<li>Customized themes and plugins according to client requirements, improving overall performance and SEO.</li>
+					<li>Collaborated with team members to implement interfaces and integrate CMS functionalities.</li>
+					<li>Completed a 6-month internship developing landing pages and forms using HTML, CSS, and JavaScript.</li>
+				</ul>
+			</p>
+		</div>
+	</div>
+</div>
 
-							</div>
 
 		<br>
 		<br>
@@ -354,40 +487,45 @@
 		<br>
 		
 			<div class="row">
-    			<div class="col-md-6">
-    				<div class="resume-wrap ftco-animate">
-    					<span class="date">2007 - 2019 </span>
-    					<h2>School</h2>
-    					<span class="position">Saint Joseph's English Medium School</span>
-    					<p class="mt-4">Grade: 66</p>
-    				</div>
-    			</div>
-
-    			<div class="col-md-6">
-    				<div class="resume-wrap ftco-animate">
-    					<span class="date">2019 - 2022 </span>
-    					<h2>Diploma In IT</h2>
-    					<span class="position">Institute of Petrochemical Engineering </span>
-    					<p class="mt-4">Grade: 96.80</p>
-    				</div>
-				</div>
-    		</div>
-
-			<div class="col-md-6">
-				<div class="resume-wrap ftco-animate">
-					<span class="date">2022 - Present</span>
-					<h2>Bachelor of Engineering</h2>
-					<span class="position">Pune Institute of Computer Technology</span>
-					<p class="mt-4">Current Grade: 9.61</p>
-					<p class="mt-4">Agg.Grade: 8.12</p>
-				</div>
-			</div>
+	<!-- School -->
+	<div class="col-md-6">
+		<div class="resume-wrap ftco-animate">
+			<span class="date">2007 - 2017</span>
+			<h2>School</h2>
+			<span class="position">Saint Joseph's English Medium School</span>
+			<p class="mt-4">Grade: 66%</p>
 		</div>
+	</div>
+
+	<!-- Diploma -->
+	<div class="col-md-6">
+		<div class="resume-wrap ftco-animate">
+			<span class="date">Aug 2017 - June 2020</span>
+			<h2>Diploma in Information Technology</h2>
+			<span class="position">Institute of Petrochemical Engineering, Lonere</span>
+			<p class="mt-4">GPA: 9.68</p>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<!-- Bachelor's Degree -->
+	<div class="col-md-6">
+		<div class="resume-wrap ftco-animate">
+			<span class="date">June 2020 - June 2023</span>
+			<h2>Bachelor of Engineering in Information Technology</h2>
+			<span class="position">Pune Institute of Computer Technology (PICT), Pune</span>
+			<p class="mt-4">Current SGPA: 9.85</p>
+			<p class="mt-4">Aggregate CGPA: 8.75</p>
+		</div>
+	</div>
+</div>
+
 
 		<div class="row justify-content-center mt-5">
 			<div class="col-md-6 text-center ftco-animate">
 				<p>
-					<a href="images/Ashutos_Patil_Resume.pdf" class="btn btn-primary py-4 px-5" download>Download CV</a>
+					<a href="images/SDE (3).pdf" class="btn btn-primary py-4 px-5" download>Download CV</a>
 				</p>
 			</div>
 		</div>
